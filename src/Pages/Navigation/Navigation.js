@@ -7,11 +7,12 @@ import IconButton from '@mui/material/IconButton';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import { Button } from '@mui/material';
+import Avatar from '@mui/material/Avatar';
 import { NavLink } from 'react-router-dom';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { FaBars, FaWindowClose } from 'react-icons/fa';
 import './Navigation.css';
+import logo from '../../images/myb.svg';
 
 const activeStyle = {
     borderBottom: '2px solid #fff',
@@ -62,8 +63,15 @@ const Navigation = () => {
                     <span href="/#" className={!mobileDevice ? 'display-none' : 'nav-icon'} onClick={handleClick}>
                         <FaBars />
                     </span>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        Photos
+
+
+                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{ marginLeft: 'auto' }}>
+                        <Avatar
+                            alt="Remy Sharp"
+                            src={logo}
+                            sx={{ width: 40, height: 40, p: 1 }}
+                            className={mobileDevice ? 'display-none' : ''}
+                        />
                     </Typography>
                     <Box className={mobileDevice ? 'display-none' : 'nav'}>
                         <NavLink activeStyle={activeStyle} to="/" className="nav-item">
@@ -78,39 +86,14 @@ const Navigation = () => {
                         <NavLink activeStyle={activeStyle} to="/contact-us" className="nav-item">
                             Contact us
                         </NavLink>
+                        
                     </Box>
-                    {auth && (
-                        <div>
-                            <IconButton
-                                size="large"
-                                aria-label="account of current user"
-                                aria-controls="menu-appbar"
-                                aria-haspopup="true"
-                                onClick={handleMenu}
-                                color="inherit"
-                            >
-                                <AccountCircle />
-                            </IconButton>
-                            <Menu
-                                id="menu-appbar"
-                                anchorEl={anchorEl}
-                                anchorOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                keepMounted
-                                transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                open={Boolean(anchorEl)}
-                                onClose={handleClose}
-                            >
-                                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                                <MenuItem onClick={handleClose}>My account</MenuItem>
-                            </Menu>
-                        </div>
-                    )}
+                    <Avatar
+                        alt="Remy Sharp"
+                        src={logo}
+                        sx={{ width: 40, height: 40, p: 1 }}
+                        className={!mobileDevice ? 'display-none' : 'nav-icon'}
+                    />
                 </Toolbar>
             </AppBar>
             <Box sx={{ bgcolor: 'primary.main' }} className={burgerItem ? 'burger-menu-item burger-menu-visible' : 'burger-menu-item'}>
