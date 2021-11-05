@@ -12,7 +12,7 @@ import { NavLink } from 'react-router-dom';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { FaBars, FaWindowClose } from 'react-icons/fa';
 import './Navigation.css';
-import logo from '../../images/myb.svg';
+import logo from '../../../images/myb.svg';
 
 const activeStyle = {
     borderBottom: '2px solid #fff',
@@ -20,8 +20,6 @@ const activeStyle = {
 }
 
 const Navigation = () => {
-    const [auth, setAuth] = useState(true);
-    const [anchorEl, setAnchorEl] = useState(null);
     const [burgerItem, setBurgerItem] = useState(false);
     const mobileDevice = useMediaQuery('(max-width:600px)');
     console.log(mobileDevice);
@@ -36,13 +34,6 @@ const Navigation = () => {
     //   console.log(event.target.checked);
     // };
 
-    const handleMenu = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
 
     return (
         <Box className="app-bar" sx={{ flexGrow: 1 }}>
@@ -58,7 +49,7 @@ const Navigation = () => {
           label={auth ? 'Logout' : 'Login'}
         />
       </FormGroup> */}
-            <AppBar position="static">
+            <AppBar position="fixed">
                 <Toolbar>
                     <span href="/#" className={!mobileDevice ? 'display-none' : 'nav-icon'} onClick={handleClick}>
                         <FaBars />
