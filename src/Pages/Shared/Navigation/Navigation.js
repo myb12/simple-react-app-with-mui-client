@@ -3,10 +3,6 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
 import Avatar from '@mui/material/Avatar';
 import { NavLink } from 'react-router-dom';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -22,12 +18,13 @@ const activeStyle = {
 const Navigation = () => {
     const [burgerItem, setBurgerItem] = useState(false);
     const mobileDevice = useMediaQuery('(max-width:600px)');
-    console.log(mobileDevice);
+    // console.log(mobileDevice);
 
     const handleClick = () => {
         setBurgerItem(!burgerItem);
     }
 
+    console.log(burgerItem);
 
     // const handleChange = (event) => {
     //   setAuth(event.target.checked);
@@ -37,19 +34,7 @@ const Navigation = () => {
 
     return (
         <Box className="app-bar" sx={{ flexGrow: 1 }}>
-            {/* <FormGroup>
-        <FormControlLabel
-          control={
-            <Switch
-              checked={auth}
-              onChange={handleChange}
-              aria-label="login switch"
-            />
-          }
-          label={auth ? 'Logout' : 'Login'}
-        />
-      </FormGroup> */}
-            <AppBar position="fixed">
+            <AppBar position="fixed" sx={{ backgroundColor:'#03a84e'}}>
                 <Toolbar>
                     <span href="/#" className={!mobileDevice ? 'display-none' : 'nav-icon'} onClick={handleClick}>
                         <FaBars />
@@ -65,10 +50,10 @@ const Navigation = () => {
                         />
                     </Typography>
                     <Box className={mobileDevice ? 'display-none' : 'nav'}>
-                        <NavLink activeStyle={activeStyle} to="/" className="nav-item">
+                        <NavLink activeStyle={activeStyle} to="/home" className="nav-item">
                             Home
                         </NavLink>
-                        <NavLink activeStyle={activeStyle} to="/service" className="nav-item">
+                        <NavLink activeStyle={activeStyle} to="/services" className="nav-item">
                             Services
                         </NavLink>
                         <NavLink activeStyle={activeStyle} to="/about" className="nav-item">
@@ -77,7 +62,7 @@ const Navigation = () => {
                         <NavLink activeStyle={activeStyle} to="/contact-us" className="nav-item">
                             Contact us
                         </NavLink>
-                        
+
                     </Box>
                     <Avatar
                         alt="Remy Sharp"

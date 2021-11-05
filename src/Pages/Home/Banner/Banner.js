@@ -6,9 +6,9 @@ import './Banner.css';
 const Banner = () => {
     return (
         <Box className="banner-container" style={{ backgroundColor: 'cyan' }}>
-            <Container sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems:'center' }}>
+            <Container sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                 <Typography variant="h3" sx={{ color: '#fff', fontWeight: 'bold' }}>
-                   MYB
+                    MYB
                 </Typography>
                 <Typography variant="h5" sx={{ color: '#fff' }}>
                     Job Portal Website
@@ -17,7 +17,7 @@ const Banner = () => {
                     MYB Job Portal websites. Nice and clean design.
                 </Typography>
 
-                <Button variant="contained">View More</Button>
+                <Button variant="contained" sx={{ backgroundColor: '#03a84e' }}>View More</Button>
             </Container>
         </Box>
     );

@@ -1,13 +1,12 @@
 .banner-container{
     background-image: url(https://template.hasthemes.com/finate/assets/img/slider-landing.webp);
-
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
     z-index: 1;
-    padding: 300px 0 250px;
+    padding: 250px 0;
 }
 
 .banner-container::before {
